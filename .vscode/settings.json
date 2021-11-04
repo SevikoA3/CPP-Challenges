@@ -7,6 +7,9 @@
         "stack": "cpp",
         "string": "cpp",
         "xlocale": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "vector": "cpp"
     }
 }

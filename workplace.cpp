@@ -1,18 +1,23 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <string>
 using namespace std;
 
-string happyladybug (vector<char> arr, vector<char>indchar){
-    if (arr.size() == 1) return "YES\n";
-    else if (find(indchar.begin(), indchar.end(), '_') == indchar.end()) return "NO\n";
-    else {
-        for (char x : indchar){
-            if (x!= '_' && count(arr.begin(), arr.end(), x) < 2) {return "NO\n"; break;}
+string happyladybug (string word, int n){
+    int count;
+    for (char i = 'A'; i <= 'Z'; i++){
+        count = 0;
+        for (int j = 0; j < n; j++){
+            if (word[j] == i) count++;
         }
-        return "YES\n";
+        if (count == 1) return "NO";
     }
+    count = 0;
+    if (word.find('_') == string::npos){
+        for (int i = 0; i < n; i++){
+            if (word[i] != word[i-1] && word[i] != word[i+1]) return "NO";
+        }
+    }
+    return "YES";
 }
 
 int main(){
@@ -22,19 +27,9 @@ int main(){
     while (t--){
         int n;
         cin >> n;
-        vector<char> indchar;
-        vector<char> arr;
-        for (int i = 0; i < n; i++){
-            char temp;
-            cin >> temp;
-            arr.push_back(temp);
-            if (i > 0){
-                if (find(indchar.begin(), indchar.end(), temp) == indchar.end()){
-                    indchar.push_back(temp);
-                }
-            }
-        }
-        cout << happyladybug(arr, indchar);
+        string word;
+        cin >> word;
+        cout << happyladybug(word, n) << endl;
     }
     return 0;
 }
