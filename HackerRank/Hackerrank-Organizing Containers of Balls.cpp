@@ -26,6 +26,6 @@ int main(){
         sort(row.begin(), row.end());
         col == row ? cout << "Possible" : cout << "Impossible";
         cout << endl;
-        return 0;
     }
+    return 0;
 }
