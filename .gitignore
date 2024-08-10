@@ -1,0 +1,4 @@
+.vscode
+*.exe
+workplace.cpp
+test.cpp
